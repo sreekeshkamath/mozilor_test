@@ -16,6 +16,10 @@ services:
       - ./:/var/www
     networks:
       - app-network
+    depends_on:
+      - db
+      - phpmyadmin
+      - nginx
 
   db:
     image: mariadb:latest
