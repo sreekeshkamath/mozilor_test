@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use League\Csv\Reader;
 use League\Csv\Statement;
 
@@ -16,7 +18,7 @@ class ProductController extends Controller
      * @param Request $request
      * @return void
      */
-    public function import(Request $request): string
+    public function import(Request $request): JsonResponse
     {
         $request->validate([
             'file' => 'required|file|mimes:csv,txt',
@@ -37,5 +39,15 @@ class ProductController extends Controller
         }
 
         return response()->json(['message' => 'Products imported successfully.']);
+    }
+
+    /**
+     * Get All Products.
+     *
+     * @return void
+     */
+    public function getProducts(): JsonResponse {
+        $products = Product::all();
+        return response()->json($products, Response::HTTP_OK);
     }
 }

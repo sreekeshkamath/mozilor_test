@@ -26,3 +26,5 @@ Route::post('/signup', [SignUpController::class, 'signup']);
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware('auth:sanctum')->post('/products/import', [ProductController::class, 'import']);
+
+Route::middleware('auth:sanctum')->get('/products', [ProductController::class, 'getProducts']);

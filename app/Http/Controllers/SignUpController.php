@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +17,7 @@ class SignUpController extends Controller
      * @param Request $request
      * @return string
      */
-    public function signup(Request $request): string {
+    public function signup(Request $request): JsonResponse {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -32,6 +33,7 @@ class SignUpController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return response()->json(['message' => 'User successfully registered', 'user' => $user]);
+        return response()->json(['message' => 'User successfully registered', 'user' => $user], 201);
     }
+
 }
