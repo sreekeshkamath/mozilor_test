@@ -24,9 +24,13 @@ To access phpmyadmin: http://localhost:8080/
 The following API's are created:
 
 **Signup API:** 
+
 Method: POST
+
 Route: http://localhost:8000/api/signup
+
 Body: JSON
+
 ```
 {
 	"name": "sreekesh",
@@ -51,9 +55,13 @@ Response: 201 Created
 ***
 
 **Sigin API**
+
 Method: POST
+
 Route: http://localhost:8000/api/login
+
 Body: JSON
+
 ```
 {
 	"email":"sreekesh@gmail.com",
@@ -72,8 +80,11 @@ Response: 200 OK
 
 **Products Import API**
 Method: POST
+
 Route: http://localhost:8000/api/products/import
+
 Body: Multipart Form
+
 ```
 file: Mozilor Products Test Data.csv(you can find it in the repository itself).
 ```
@@ -85,10 +96,15 @@ Response: 201 Created
 ```
 ***
 **Get Products API**
+
 Method: POST
+
 Route: http://localhost:8000/api/products
+
 Body: No Body
+
 Response: 200 OK
+
 ```
 [
 	{
