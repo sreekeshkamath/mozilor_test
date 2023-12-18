@@ -10,7 +10,7 @@ Please make sure you have `docker` and `docker-compose` installed in your system
 ```
 git clone https://github.com/sreekeshkamath/mozilor_test.git
 sudo chown 1000:1000 mozilor_test -R
-cd mozilor-test
+cd mozilor_test
 sudo docker compose pull
 sudo docker compose up -d
 ```
