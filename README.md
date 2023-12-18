@@ -82,6 +82,8 @@ Response: 200 OK
 **Products Import API**
 Method: POST
 
+Headers: Bearer 5|4h8AaoOPkt2jaNjcWCWeVuRCdcjLUi0FoqfqYSpR
+
 Route: http://localhost:8000/api/products/import
 
 Body: Multipart Form
@@ -99,6 +101,8 @@ Response: 201 Created
 **Get Products API**
 
 Method: GET
+
+Headers: Bearer 5|4h8AaoOPkt2jaNjcWCWeVuRCdcjLUi0FoqfqYSpR
 
 Route: http://localhost:8000/api/products
 
