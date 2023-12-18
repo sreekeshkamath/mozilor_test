@@ -97,7 +97,7 @@ Response: 201 Created
 ***
 **Get Products API**
 
-Method: POST
+Method: GET
 
 Route: http://localhost:8000/api/products
 
