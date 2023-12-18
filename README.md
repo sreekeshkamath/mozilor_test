@@ -17,6 +17,7 @@ sudo docker compose up -d
 Once your docker is up and running, please access the following to verify if the configurations are correct:
 
 To access the website: http://localhost:8000/
+
 To access phpmyadmin: http://localhost:8080/
 
 # API's
