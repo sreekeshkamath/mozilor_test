@@ -1,28 +1,38 @@
-FROM alpine:3.15
+# Use Alpine 3.18 as base image
+FROM alpine:3.16
 
-# Install PHP and required extensions
+# Install PHP 8 and required extensions
 RUN apk update && apk add --no-cache \
-    php7 \
-    php7-fpm \
-    php7-pdo \
-    php7-pdo_mysql \
-    php7-mbstring \
-    php7-exif \
-    php7-pcntl \
-    php7-bcmath \
-    php7-gd \
-    php7-xml \
-    php7-zip \
-    php7-curl \
-    php7-phar \
-    php7-json \
+    openrc \
+    php8 \
+    php8-fpm \
+    php8-pdo \
+    php8-pdo_mysql \
+    php8-mbstring \
+    php8-exif \
+    php8-pcntl \
+    php8-bcmath \
+    php8-gd \
+    php8-xml \
+    php8-zip \
+    php8-curl \
+    php8-phar \
+    php8-json \
     oniguruma-dev \
     libpng-dev \
     libxml2-dev \
+    php8-session\
     zip \
     unzip \
     git \
+    iproute2 \
     curl
+
+RUN addgroup -S -g 1000 mozilorgroup
+
+RUN adduser -S -G mozilorgroup -u 1000 mozilor
+
+COPY www.conf /etc/php8/php-fpm.d/
 
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -35,9 +45,10 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 # Set working directory
 WORKDIR /var/www
 
+RUN chown -R 1000:1000 /var/www/
+
 # Expose port 9000 for php-fpm
 EXPOSE 9000
 
 ENTRYPOINT ["entrypoint.sh"]
-# Start php-fpm server
-CMD ["php-fpm7", "-F"]
+

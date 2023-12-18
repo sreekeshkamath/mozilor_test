@@ -8,5 +8,5 @@ done
 # Run database migrations
 php artisan migrate --force
 
-# Continue with container's main process
-exec "$@"
+# Start php-fpm8
+exec php-fpm8 -F
