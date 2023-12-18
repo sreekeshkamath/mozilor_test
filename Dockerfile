@@ -18,6 +18,10 @@ RUN apk update && apk add --no-cache \
     php8-curl \
     php8-phar \
     php8-json \
+    php-dom \
+    php-fileinfo \
+    php-tokenizer \
+    php-xmlwriter \
     oniguruma-dev \
     libpng-dev \
     libxml2-dev \
@@ -33,6 +37,8 @@ RUN addgroup -S -g 1000 mozilorgroup
 RUN adduser -S -G mozilorgroup -u 1000 mozilor
 
 COPY www.conf /etc/php8/php-fpm.d/
+
+COPY php.ini /etc/php8/
 
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
