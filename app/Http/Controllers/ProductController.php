@@ -30,6 +30,7 @@ class ProductController extends Controller
         foreach ($records as $record) {
             Product::create([
                 'name' => $record['name'],
+                'sku' => $record['sku'],
                 'description' => $record['description'],
                 'price' => $record['price']
             ]);

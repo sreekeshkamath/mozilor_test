@@ -1,4 +1,4 @@
-name,description,price
-Colgate,paste,25.55
-Brush,brush,10
-Hat,clothing,100
+name,sku,description,price
+Colgate,SKU004,paste,25.55
+Brush,SKU005,brush,10
+Hat,SKU995,clothing,100
