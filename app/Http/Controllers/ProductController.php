@@ -38,7 +38,7 @@ class ProductController extends Controller
             ]);
         }
 
-        return response()->json(['message' => 'Products imported successfully.']);
+        return response()->json(['message' => 'Products imported successfully.'], 201);
     }
 
     /**
