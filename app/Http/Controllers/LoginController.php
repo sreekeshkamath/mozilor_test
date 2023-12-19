@@ -29,5 +29,12 @@ class LoginController extends Controller
                 'token' => $token
             ]);
         }
+
+        return response()->json(
+            [
+                'message' => 'Unauthorized'
+            ],
+            401
+        );
     }
 }
